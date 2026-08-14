@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { REST, Routes, SlashCommandBuilder, Client, Collection, Events, GatewayIntentBits, MessageFlags, PermissionsBitField } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
@@ -6,8 +8,8 @@ const Color = require("./utils/text-color");
 const config = JSON.parse(fs.readFileSync("./data/config.json"));
 
 // discord bot token
-const TOKEN = config.TOKEN;
-const clientId = config.clientId;
+const TOKEN = process.env.TOKEN;
+const clientId = process.env.CLIENT_ID;
 
 // client setup
 const client = new Client(
@@ -119,9 +121,11 @@ const fetchCmd = (location) => {
             return fetchCmd(`${location}${path.sep}${item}`);
         }
     });
+
 }
 const commandsPath = path.join(__dirname, "commands");
 fetchCmd(commandsPath);
+console.log(`${Color.green}[Commands Loaded]${Color.reset}\n\n`);
 
 // register slash commands
 const registerCommands = async () => {
@@ -190,14 +194,14 @@ const registerCommands = async () => {
     const rest = new REST().setToken(TOKEN);
 
     try {
-        console.log(`Started refreshing ${slashCommands.length} application (/) commands.`);
+        console.log(`${Color.yellow}[Refreshing]${Color.reset} ${slashCommands.length} application (/) commands.`);
 
         const data = await rest.put(
             Routes.applicationCommands(clientId),
             { body: slashCommands.map(cmd => cmd.toJSON()) }
         );
 
-        console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+        console.log(`${Color.green}[Reloaded]${Color.reset} ${data.length} application (/) commands.\n\n\n`);
     } catch (error) {
         console.error("Error registering slash commands:", error);
     }
