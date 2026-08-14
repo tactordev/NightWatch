@@ -1,6 +1,4 @@
 {
-  "TOKEN": null,
-  "clientId": null,
   "channels": {
     "logs": null,
     "transcripts": null
