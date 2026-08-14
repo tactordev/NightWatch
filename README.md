@@ -4,6 +4,8 @@ A discord bot that allows you to have seamless management for your roleplay serv
 <img width="485" height="850" alt="bilde" src="https://github.com/user-attachments/assets/45cc181f-55a3-46ff-80c5-0da49d2d4c05" />
 
 
+### Demo: https://www.youtube.com/watch?v=9GHtquILcJk
+
 ***
 ### Local Installation
 To install the bot and run it locally (to either host it locally or to test it out), follows the steps below.
