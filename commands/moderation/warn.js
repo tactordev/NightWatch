@@ -28,6 +28,13 @@ module.exports = {
             content: `${emojis.error} Invalid user provided: **${member}**.\n-# ${format}`
         });
 
+        try {
+            await user.send({ content: `You have been warned in **${message.guild.name}** for ${reason}`})
+        } catch {
+            return await initialResponse.edit({
+                content: `There was an error when trying to warn the user provided.`
+            });
+        }
         saveModeration(message.guild.id, user.user.id, "warning", message.author, user.user, Infinity, reason);
 
         return await initialResponse.edit({

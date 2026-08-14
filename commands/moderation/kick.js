@@ -28,7 +28,14 @@ module.exports = {
             content: `${emojis.error} Invalid user provided: **${member}**.\n-# ${format}`
         });
 
-        await user.kick(reason);
+        try {
+            await user.send({ content: `You have been kicked from **${message.guild.name}**.`})
+            await user.kick(reason);
+        } catch {
+            return await initialResponse.edit({
+                content: `There was an error when trying to kick the user provided.`
+            });
+        }
 
         saveModeration(message.guild.id, user.user.id, "kick", message.author, user.user, Infinity, reason);
 

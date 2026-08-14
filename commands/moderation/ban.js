@@ -41,7 +41,14 @@ module.exports = {
             ({ rawDuration, duration, reason } = data);
         }
 
-        await user.ban({ reason: reason || "No reason provided." });
+        try {
+            await user.send({ content: `You have been banned from **${message.guild.name}** for ${reason.length > 0 ? reason : "no reason provided."}`})
+            await user.ban({ reason: reason || "No reason provided." });
+        } catch {
+            return await initialResponse.edit({
+                content: `There was an error when trying to ban the user provided.`
+            });
+        }
 
         saveModeration(message.guild.id, user.user.id, "ban", message.author, user.user, rawDuration, reason);
 
