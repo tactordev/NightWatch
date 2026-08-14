@@ -13,7 +13,8 @@ To install the bot and run it locally (to either host it locally or to test it o
 2. Then enter the folder (`cd nightwatch`).
 3. Ensure you have NodeJS installed (https://nodejs.org/).
 4. Run `npm install`.
-5. Ensure you fill in your `TOKEN` and `clientId` in the `config.json`. All other fields will be populated on the first run of `index.js` or when you run the `/utility setup` command.
+5. For V1.0.1 and below: Ensure you fill in your `TOKEN` and `clientId` in the `config.json`. All other fields will be populated on the first run of `index.js` or when you run the `/utility setup` command.
+5. For V1.0.2+: Ensure you have a .env with TOKEN and CLIENT_ID or a secrets file with this information.
 6. Run `node index.js`.
 7. Navigate to a server with your bot and experiment with the commands.
 
