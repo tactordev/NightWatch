@@ -45,7 +45,14 @@ module.exports = {
             content: `${emojis.error} Invalid duration provided.\n-# ${format}`
         });
 
-        await user.timeout(duration, reason || "No reason provided.");
+        try {
+            await user.send({ content: `You have been timed out in **${message.guild.name}** for ${reason || "no reason provided."}`})
+            await user.timeout(duration, reason || "No reason provided.");
+        } catch {
+            return await initialResponse.edit({
+                content: `There was an error when trying to time out the user provided.`
+            });
+        }
 
         saveModeration(message.guild.id, user.user.id, "timeout", message.author, user.user, rawDuration, reason);
 
