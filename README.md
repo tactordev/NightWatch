@@ -7,6 +7,12 @@ A discord bot that allows you to have seamless management for your roleplay serv
 ### Demo: https://www.youtube.com/watch?v=9GHtquILcJk
 
 ***
+### Testing on a Server
+To test this discord bot on a server, please read through the documentation regarding the various commands @ https://github.com/tactordev/NightWatch/blob/main/COMMAND_USAGE.md.
+Then, join: https://discord.gg/ywug7WKW2X and you will be granted the Tester role. Each channel has information regarding which commands can be used and what they do.
+***
+
+
 ### Local Installation
 To install the bot and run it locally (to either host it locally or to test it out), follows the steps below.
 1. Download the code by clicking on: `Code > Download ZIP` to the top right of the code. **OR** Use `git clone https://github.com/tactordev/nightwatch` in your terminal. **OR** Download the source code from the `Releases` tab.
