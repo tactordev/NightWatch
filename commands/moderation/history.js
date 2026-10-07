@@ -58,7 +58,7 @@ const genComponents = (page, data, disabled = null) => {
 
     const prev = new discord.ButtonBuilder()
         .setCustomId('button:history:prev')
-        .setEmoji(emojis.left)
+        .setEmoji(emojis.leftchevron)
         .setStyle(discord.ButtonStyle.Primary)
         .setDisabled(disabled ?? page === 0);
 
@@ -70,7 +70,7 @@ const genComponents = (page, data, disabled = null) => {
 
     const next = new discord.ButtonBuilder()
         .setCustomId('button:history:next')
-        .setEmoji(emojis.right)
+        .setEmoji(emojis.rightchevron)
         .setStyle(discord.ButtonStyle.Primary)
         .setDisabled(disabled ?? page >= total - 1);
 
